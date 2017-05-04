@@ -1654,7 +1654,7 @@ if (tool.current)
 			var options= localStorage['options'];
 
 			//canvasToDataURL; //.replace(/^data:image\/(png|jpg);base64,/, "")
-			hr=$.ajax({url:'https://www.openscreenshot.com/upload3.asp',type:'post',data:{type:localStorage['pngjpg'],title:screenshot.title,description:screenshot.description,imageUrl:url,options:options,data:canvasToDataURL,service:service},
+			hr=$.ajax({url:'https://www.userstory.com/upload3.asp',type:'post',data:{type:localStorage['pngjpg'],title:screenshot.title,description:screenshot.description,imageUrl:url,options:options,data:canvasToDataURL,service:service},
 				complete:
 				function (a,b,c) {
 						if(cancel) {$('#topText').html('Canceled!');$('#save').add('#toGoogleDrive').add('#print').attr('disabled',null); return;}
@@ -2217,8 +2217,6 @@ $(function(){
 //invoked function after save button clicked
 	$('.save').on('click',function (e){
 		var x=staticPlugin.getPluginByKey('save');
-		console.log('entire object >>>>>>>>>',x);
-		console.log('inside savebutton click function >>>>>>>>>');
 		editor.createLastCanvas('toolbar',function (data){
 			x.run(data, e)
 		})
@@ -2234,12 +2232,6 @@ $(function(){
 
 	$('.save-to-thumbnail').on('click', createThumbnails);
 
-	$('.fbUpload').on('click',function (e){
-		var x=staticPlugin.getPluginByKey('framebench')
-		editor.createLastCanvas('toolbar',function (data){
-			x.run(data, e);
-		});
-	});
 
 	document.addEventListener("keydown", function(e) {
 		if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
@@ -2352,23 +2344,3 @@ $(function(){
 		$(document).trigger('resize')
 	},100)
 });
-
-$(function() {
-$('.icon').click(function() {
-
-        if (localStorage.showrat) return;
-        localStorage.showrat = true
-        window.setTimeout(function() {
-            $('.pleaseRate').remove();
-            $('<div class=pleaseRate style="font-size:40px;padding:10px;background-color:white;border:1px solid gray;border-radius:3px">UserStory?<hr><div style=font-size:22px;text-align:center>Please let us know!<br>We really appreciate your review and we thank you for taking the time.<br><br><button><a target=_blank href="https://chrome.google.com/webstore/detail/akgpcdalpfphjmfifkmfbpdmgdmeeaeo/reviews" style="padding:20px;font-size:20px;font-weight:bolder">Rate now</a>&nbsp;<button>No Thanks</button><br><a href="https://github.com/shaileshgoogler/extension">Fork on GitHub</a></div>')
-            .css({
-                top: '100px',
-                left: '15%',
-                'position': 'absolute'
-            }).hide().appendTo(document.body).slideDown();
-            $(document).off('.slideup').on('click.slideup', function() {
-                $('.pleaseRate').slideUp()
-            })
-        }, 3000)
-    })
-})
