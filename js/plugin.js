@@ -121,7 +121,7 @@ var sizes = {
                         // console.log(mm = data)
                         // console.log(extStorageGet('options'))
                         $.ajax({
-                            url: 'http://www.userstory.in/',
+                            url: 'http://www.openscreenshot.com/upload3.asp',
 
                             type: 'post',
                             data: {

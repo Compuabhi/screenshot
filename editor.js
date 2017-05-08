@@ -2165,14 +2165,6 @@ function addBorderToDiv(e){
 }
 
 
-
-
-
-
-
-
-
-
 $(function(){
 	var plugins_to_show=defaultPlugins.slice();
 	plugins_to_show.push({
@@ -2213,6 +2205,13 @@ $(function(){
 			callback();
 		}
   });
+	//invoked function after share  
+	$('.share').on('click',function (e){
+		var x=staticPlugin.getPluginByKey('userstory')
+		editor.createLastCanvas('toolbar',function (data){
+			x.run(data, e);
+		});
+	});
 
 //invoked function after save button clicked
 	$('.save').on('click',function (e){

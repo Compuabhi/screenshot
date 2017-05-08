@@ -88,6 +88,6 @@
         "/js/dialog.js"
     ],
     "offline_enabled":true,
-    "permissions": ["activeTab","clipboardWrite"],
+    "permissions": ["activeTab","clipboardWrite","<all_urls>"],
     "optional_permissions": ["desktopCapture" ]
 }
